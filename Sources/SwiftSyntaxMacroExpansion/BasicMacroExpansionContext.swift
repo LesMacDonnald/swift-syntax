@@ -11,12 +11,10 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-public import SwiftDiagnostics
-import SwiftOperators
+public import SwiftOperators
 public import SwiftSyntax
 public import SwiftSyntaxMacros
 #else
-import SwiftDiagnostics
 import SwiftOperators
 import SwiftSyntax
 import SwiftSyntaxMacros

@@ -10,7 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-import SwiftDiagnostics
 import SwiftSyntax
 
 /// Errors in macro handing.
@@ -37,10 +36,10 @@ extension MacroExpansionError: DiagnosticMessage {
       return "invalid macro role '\(role)' for expansion"
     }
   }
-  var diagnosticID: SwiftDiagnostics.MessageID {
+  var diagnosticID: SwiftSyntax.MessageID {
     .init(domain: "SwiftCompilerPlugin", id: "\(type(of: self)).\(self)")
   }
-  var severity: SwiftDiagnostics.DiagnosticSeverity {
+  var severity: SwiftSyntax.DiagnosticSeverity {
     .error
   }
 }
@@ -48,7 +47,7 @@ extension MacroExpansionError: DiagnosticMessage {
 extension MacroExpansionError: Error {}
 
 extension PluginMessage.Diagnostic.Severity {
-  init(from syntaxDiagSeverity: SwiftDiagnostics.DiagnosticSeverity) {
+  init(from syntaxDiagSeverity: SwiftSyntax.DiagnosticSeverity) {
     switch syntaxDiagSeverity {
     case .error: self = .error
     case .warning: self = .warning
@@ -62,7 +61,7 @@ extension PluginMessage.Diagnostic.Severity {
 }
 
 extension PluginMessage.Diagnostic {
-  init(from syntaxDiag: SwiftDiagnostics.Diagnostic, in sourceManager: SourceManager) {
+  init(from syntaxDiag: SwiftSyntax.Diagnostic, in sourceManager: SourceManager) {
     if let position = sourceManager.position(
       of: syntaxDiag.node,
       at: .afterLeadingTrivia

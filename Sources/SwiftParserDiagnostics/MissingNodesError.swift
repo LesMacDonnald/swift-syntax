@@ -12,11 +12,9 @@
 
 #if swift(>=6)
 import SwiftBasicFormat
-import SwiftDiagnostics
 @_spi(RawSyntax) public import SwiftSyntax
 #else
 import SwiftBasicFormat
-import SwiftDiagnostics
 @_spi(RawSyntax) import SwiftSyntax
 #endif
 

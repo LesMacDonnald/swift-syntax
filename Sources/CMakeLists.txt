@@ -8,7 +8,6 @@
 
 add_subdirectory(SwiftBasicFormat)
 add_subdirectory(SwiftSyntax)
-add_subdirectory(SwiftDiagnostics)
 add_subdirectory(SwiftParser)
 add_subdirectory(SwiftParserDiagnostics)
 add_subdirectory(SwiftRefactor)

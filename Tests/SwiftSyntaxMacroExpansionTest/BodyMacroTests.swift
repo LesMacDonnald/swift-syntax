@@ -18,7 +18,6 @@
 // macros are invoked.                                                      //
 //==========================================================================//
 
-import SwiftDiagnostics
 import SwiftSyntax
 @_spi(Testing) import SwiftSyntaxMacroExpansion
 @_spi(ExperimentalLanguageFeature) import SwiftSyntaxMacros

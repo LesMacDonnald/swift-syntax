@@ -12,7 +12,6 @@
 
 #if swift(>=6.0)
 import SwiftBasicFormat
-public import SwiftDiagnostics
 @_spi(FixItApplier) import SwiftIDEUtils
 import SwiftParser
 import SwiftParserDiagnostics
@@ -23,7 +22,6 @@ import _SwiftSyntaxTestSupport
 private import XCTest
 #else
 import SwiftBasicFormat
-import SwiftDiagnostics
 @_spi(FixItApplier) import SwiftIDEUtils
 import SwiftParser
 import SwiftParserDiagnostics

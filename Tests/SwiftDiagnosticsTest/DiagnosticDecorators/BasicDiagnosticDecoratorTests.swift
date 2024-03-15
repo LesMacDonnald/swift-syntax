@@ -10,8 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-@_spi(Testing) import SwiftDiagnostics
-import XCTest
+@_spi(Testing) import XCTest
 import _SwiftSyntaxTestSupport
 
 final class BasicDiagnosticDecoratorTests: XCTestCase {

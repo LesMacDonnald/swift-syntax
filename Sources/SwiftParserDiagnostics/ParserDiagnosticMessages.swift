@@ -11,11 +11,9 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-public import SwiftDiagnostics
 @_spi(Diagnostics) import SwiftParser
 @_spi(RawSyntax) public import SwiftSyntax
 #else
-import SwiftDiagnostics
 @_spi(Diagnostics) import SwiftParser
 @_spi(RawSyntax) import SwiftSyntax
 #endif

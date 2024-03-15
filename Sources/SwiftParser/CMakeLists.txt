@@ -55,5 +55,4 @@ add_swift_syntax_library(SwiftParser
 )
 
 target_link_swift_syntax_libraries(SwiftParser PUBLIC
-  SwiftSyntax
-  SwiftDiagnostics)
+  SwiftSyntax)

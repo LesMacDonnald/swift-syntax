@@ -10,7 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-import SwiftDiagnostics
 import SwiftSyntax
 import SwiftSyntaxBuilder
 @_spi(Compiler) import SwiftSyntaxMacroExpansion

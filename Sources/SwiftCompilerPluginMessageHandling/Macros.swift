@@ -11,7 +11,6 @@
 //===----------------------------------------------------------------------===//
 
 import SwiftBasicFormat
-import SwiftDiagnostics
 import SwiftOperators
 import SwiftSyntax
 @_spi(ExperimentalLanguageFeature) import SwiftSyntaxMacroExpansion

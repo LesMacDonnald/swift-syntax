@@ -11,9 +11,9 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-public import SwiftDiagnostics
+public import SwiftSyntax
 #else
-import SwiftDiagnostics
+import SwiftSyntax
 #endif
 
 fileprivate let diagnosticDomain: String = "SwiftSyntaxMacros"
@@ -26,9 +26,9 @@ fileprivate let diagnosticDomain: String = "SwiftSyntaxMacros"
 public struct MacroExpansionErrorMessage: Error, DiagnosticMessage {
   public let message: String
 
-  public var severity: SwiftDiagnostics.DiagnosticSeverity { .error }
+  public var severity: SwiftSyntax.DiagnosticSeverity { .error }
 
-  public var diagnosticID: SwiftDiagnostics.MessageID {
+  public var diagnosticID: SwiftSyntax.MessageID {
     .init(domain: diagnosticDomain, id: "\(Self.self)")
   }
 
@@ -45,9 +45,9 @@ public struct MacroExpansionErrorMessage: Error, DiagnosticMessage {
 public struct MacroExpansionWarningMessage: DiagnosticMessage {
   public let message: String
 
-  public var severity: SwiftDiagnostics.DiagnosticSeverity { .warning }
+  public var severity: SwiftSyntax.DiagnosticSeverity { .warning }
 
-  public var diagnosticID: SwiftDiagnostics.MessageID {
+  public var diagnosticID: SwiftSyntax.MessageID {
     .init(domain: diagnosticDomain, id: "\(Self.self)")
   }
 
@@ -64,7 +64,7 @@ public struct MacroExpansionWarningMessage: DiagnosticMessage {
 public struct MacroExpansionFixItMessage: FixItMessage {
   public var message: String
 
-  public var fixItID: SwiftDiagnostics.MessageID {
+  public var fixItID: SwiftSyntax.MessageID {
     .init(domain: diagnosticDomain, id: "\(Self.self)")
   }
 
@@ -81,7 +81,7 @@ public struct MacroExpansionFixItMessage: FixItMessage {
 public struct MacroExpansionNoteMessage: NoteMessage {
   public var message: String
 
-  public var noteID: SwiftDiagnostics.MessageID {
+  public var noteID: SwiftSyntax.MessageID {
     .init(domain: diagnosticDomain, id: "\(Self.self)")
   }
 

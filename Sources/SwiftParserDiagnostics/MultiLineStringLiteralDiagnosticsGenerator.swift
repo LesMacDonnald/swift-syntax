@@ -10,7 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-import SwiftDiagnostics
 @_spi(RawSyntax) import SwiftSyntax
 
 /// A diagnostic that `MultiLineStringLiteralIndentationDiagnosticsGenerator` is building.
