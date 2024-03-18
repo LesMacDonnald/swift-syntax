@@ -11,7 +11,6 @@
 //===----------------------------------------------------------------------===//
 
 import SwiftOperators
-import SwiftParser
 import SwiftSyntax
 import SwiftSyntaxMacros
 

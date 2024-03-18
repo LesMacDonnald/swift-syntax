@@ -10,8 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-@_spi(Diagnostics) import SwiftParser
-@_spi(RawSyntax) @_spi(ExperimentalLanguageFeatures) import SwiftSyntax
+@_spi(Diagnostics) @_spi(RawSyntax) @_spi(ExperimentalLanguageFeatures) import SwiftSyntax
 
 extension UnexpectedNodesSyntax {
   func presentTokens(satisfying isIncluded: (TokenSyntax) -> Bool) -> [TokenSyntax] {

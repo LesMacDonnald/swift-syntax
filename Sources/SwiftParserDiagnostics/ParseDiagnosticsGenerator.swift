@@ -11,11 +11,9 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-@_spi(Diagnostics) import SwiftParser
-@_spi(RawSyntax) @_spi(ExperimentalLanguageFeatures) public import SwiftSyntax
+@_spi(Diagnostics) @_spi(RawSyntax) @_spi(ExperimentalLanguageFeatures) public import SwiftSyntax
 #else
-@_spi(Diagnostics) import SwiftParser
-@_spi(RawSyntax) @_spi(ExperimentalLanguageFeatures) import SwiftSyntax
+@_spi(Diagnostics) @_spi(RawSyntax) @_spi(ExperimentalLanguageFeatures) import SwiftSyntax
 #endif
 
 fileprivate func getTokens(between first: TokenSyntax, and second: TokenSyntax) -> [TokenSyntax] {

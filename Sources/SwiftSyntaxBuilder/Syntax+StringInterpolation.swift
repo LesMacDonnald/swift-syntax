@@ -11,11 +11,9 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-@_spi(RawSyntax) @_spi(Testing) import SwiftParser
-@_spi(RawSyntax) public import SwiftSyntax
+@_spi(RawSyntax) @_spi(Testing) @_spi(RawSyntax) public import SwiftSyntax
 #else
-@_spi(RawSyntax) @_spi(Testing) import SwiftParser
-@_spi(RawSyntax) import SwiftSyntax
+@_spi(RawSyntax) @_spi(Testing) @_spi(RawSyntax) import SwiftSyntax
 #endif
 
 /// An individual interpolated syntax node.

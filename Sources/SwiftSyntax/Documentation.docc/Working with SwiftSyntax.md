@@ -187,7 +187,6 @@ trees when the `SwiftSyntaxBuilder` module is also imported:
 
 ```swift
 import SwiftSyntax
-import SwiftParser
 import SwiftSyntaxBuilder
 
 // `file` is a source file syntax node containing the parsed value of the
@@ -204,7 +203,6 @@ functions.
 
 ```swift
 import SwiftSyntax
-import SwiftParser
 
 func createClass(named name: String) -> ClassDeclSyntax {
   return """

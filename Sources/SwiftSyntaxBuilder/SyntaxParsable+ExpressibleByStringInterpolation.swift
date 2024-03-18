@@ -11,11 +11,9 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-public import SwiftParser
 import SwiftParserDiagnostics
 import SwiftSyntax
 #else
-import SwiftParser
 import SwiftParserDiagnostics
 import SwiftSyntax
 #endif

@@ -11,11 +11,9 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-@_spi(Diagnostics) import SwiftParser
-@_spi(RawSyntax) public import SwiftSyntax
+@_spi(Diagnostics) @_spi(RawSyntax) public import SwiftSyntax
 #else
-@_spi(Diagnostics) import SwiftParser
-@_spi(RawSyntax) import SwiftSyntax
+@_spi(Diagnostics) @_spi(RawSyntax) import SwiftSyntax
 #endif
 
 fileprivate let diagnosticDomain: String = "SwiftParser"

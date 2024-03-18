@@ -7,7 +7,6 @@ The `SwiftParser` framework implements a parser that accepts Swift source text a
 The easiest way to parse Swift source code is to call the `Parser.parse` method, providing it with a string containing the source code:
 
 ```swift
-import SwiftParser
 import SwiftSyntax
 
 let sourceText =

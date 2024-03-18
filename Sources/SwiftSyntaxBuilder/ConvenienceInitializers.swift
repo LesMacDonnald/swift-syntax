@@ -11,11 +11,9 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-@_spi(RawSyntax) import SwiftParser
-@_spi(RawSyntax) public import SwiftSyntax
+@_spi(RawSyntax) @_spi(RawSyntax) public import SwiftSyntax
 #else
-@_spi(RawSyntax) import SwiftParser
-@_spi(RawSyntax) import SwiftSyntax
+@_spi(RawSyntax) @_spi(RawSyntax) import SwiftSyntax
 #endif
 
 // MARK: - ArrayElementListSyntax
