@@ -438,7 +438,7 @@ final class MemberMacroTests: XCTestCase {
             Diagnostic(
               node: node,
               message: SwiftSyntaxMacros.MacroExpansionErrorMessage("'@ActorOnly' is only applicable to actors."),
-              fixIt: FixIt(
+              fixIts: [FixIt(
                 message: SwiftSyntaxMacros.MacroExpansionFixItMessage("Remove '@ActorOnly' attribute."),
                 changes: [
                   // This doesn't account for other attributes that *could* be present in the
@@ -448,7 +448,7 @@ final class MemberMacroTests: XCTestCase {
                     newNode: Syntax(AttributeListSyntax())
                   )
                 ]
-              )
+              )]
             )
           ])
         }
