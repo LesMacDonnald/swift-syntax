@@ -10,22 +10,34 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if SWIFT_SYNTAX_BUILD_USING_CMAKE
+import Dispatch
+
 // The CMake bulid of swift-syntax does not build the _AtomicBool module because swift-syntax's CMake build is
 // Swift-only. Fake an `AtomicBool` type that is not actually atomic. This should be acceptable for the following
 // reasons:
 //  - `AtomicBool` is only used for the `hasParent` assertion, so release compilers don't rely on it
 //  - The compiler is single-threaded so it it is safe from race conditions on `AtomicBool`.
 fileprivate struct AtomicBool {
-  var value: Bool
+    private var semaphore = DispatchSemaphore(value: 1)
+    private var innerValue: Bool = false
+    var value: Bool {
+        get {
+            semaphore.wait()
+            let result = innerValue
+            semaphore.signal()
+            return result
+        }
+        set {
+            semaphore.wait()
+            innerValue = newValue
+            semaphore.signal()
+        }
+    }
 
-  init(initialValue: Bool) {
-    self.value = initialValue
-  }
+    init(initialValue: Bool) {
+        self.innerValue = initialValue
+    }
 }
-#else
-import _AtomicBool
-#endif
 
 /// A syntax arena owns the memory for all syntax nodes within it.
 ///
