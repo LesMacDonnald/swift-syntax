@@ -10,7 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-import SwiftBasicFormat
 import SwiftParser
 @_spi(Testing) import SwiftRefactor
 import SwiftSyntax

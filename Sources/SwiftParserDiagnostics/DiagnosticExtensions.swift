@@ -10,7 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-import SwiftBasicFormat
 @_spi(RawSyntax) import SwiftSyntax
 
 extension FixIt {

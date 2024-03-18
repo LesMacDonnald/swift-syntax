@@ -11,11 +11,9 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-import SwiftBasicFormat
 public import SwiftSyntax
 @_spi(MacroExpansion) @_spi(ExperimentalLanguageFeature) public import SwiftSyntaxMacros
 #else
-import SwiftBasicFormat
 import SwiftSyntax
 @_spi(MacroExpansion) @_spi(ExperimentalLanguageFeature) import SwiftSyntaxMacros
 #endif

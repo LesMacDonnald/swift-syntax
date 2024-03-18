@@ -11,7 +11,6 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6.0)
-import SwiftBasicFormat
 @_spi(FixItApplier) import SwiftIDEUtils
 import SwiftParser
 import SwiftParserDiagnostics
@@ -21,7 +20,6 @@ public import SwiftSyntaxMacros
 import _SwiftSyntaxTestSupport
 private import XCTest
 #else
-import SwiftBasicFormat
 @_spi(FixItApplier) import SwiftIDEUtils
 import SwiftParser
 import SwiftParserDiagnostics

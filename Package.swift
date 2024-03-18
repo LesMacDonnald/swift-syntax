@@ -13,7 +13,6 @@ let package = Package(
     .macCatalyst(.v13),
   ],
   products: [
-    .library(name: "SwiftBasicFormat", targets: ["SwiftBasicFormat"]),
     .library(name: "SwiftCompilerPlugin", targets: ["SwiftCompilerPlugin"]),
     .library(name: "SwiftCompilerPluginMessageHandling", targets: ["SwiftCompilerPluginMessageHandling"]),
     .library(name: "SwiftIDEUtils", targets: ["SwiftIDEUtils"]),
@@ -35,7 +34,7 @@ let package = Package(
 
     .target(
       name: "_SwiftSyntaxTestSupport",
-      dependencies: ["SwiftBasicFormat", "SwiftSyntax", "SwiftSyntaxBuilder", "SwiftSyntaxMacroExpansion"]
+      dependencies: ["SwiftSyntax", "SwiftSyntaxBuilder", "SwiftSyntaxMacroExpansion"]
     ),
 
     .testTarget(
@@ -53,15 +52,9 @@ let package = Package(
 
     // MARK: SwiftBasicFormat
 
-    .target(
-      name: "SwiftBasicFormat",
-      dependencies: ["SwiftSyntax"],
-      exclude: ["CMakeLists.txt"]
-    ),
-
     .testTarget(
       name: "SwiftBasicFormatTest",
-      dependencies: ["_SwiftSyntaxTestSupport", "SwiftBasicFormat", "SwiftSyntaxBuilder"]
+      dependencies: ["_SwiftSyntaxTestSupport", "SwiftSyntax", "SwiftSyntaxBuilder"]
     ),
 
     // MARK: SwiftCompilerPlugin
@@ -134,7 +127,7 @@ let package = Package(
 
     .target(
       name: "SwiftSyntaxBuilder",
-      dependencies: ["SwiftBasicFormat", "SwiftParser", "SwiftParserDiagnostics", "SwiftSyntax"],
+      dependencies: ["SwiftParser", "SwiftParserDiagnostics", "SwiftSyntax"],
       exclude: ["CMakeLists.txt"],
       swiftSettings: swiftSyntaxBuilderSwiftSettings
     ),
@@ -200,7 +193,7 @@ let package = Package(
 
     .target(
       name: "SwiftParserDiagnostics",
-      dependencies: ["SwiftBasicFormat", "SwiftParser", "SwiftSyntax"],
+      dependencies: ["SwiftParser", "SwiftSyntax"],
       exclude: ["CMakeLists.txt"]
     ),
 
@@ -228,7 +221,7 @@ let package = Package(
 
     .target(
       name: "SwiftRefactor",
-      dependencies: ["SwiftBasicFormat", "SwiftParser", "SwiftSyntax", "SwiftSyntaxBuilder"],
+      dependencies: ["SwiftParser", "SwiftSyntax", "SwiftSyntaxBuilder"],
       exclude: ["CMakeLists.txt"]
     ),
 

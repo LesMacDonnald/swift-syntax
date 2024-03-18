@@ -11,10 +11,8 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-import SwiftBasicFormat
 @_spi(RawSyntax) public import SwiftSyntax
 #else
-import SwiftBasicFormat
 @_spi(RawSyntax) import SwiftSyntax
 #endif
 
