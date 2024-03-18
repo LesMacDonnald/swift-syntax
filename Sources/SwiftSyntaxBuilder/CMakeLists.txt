@@ -32,7 +32,6 @@ target_compile_options(SwiftSyntaxBuilder PRIVATE
   $<$<COMPILE_LANGUAGE:Swift>:-D;SWIFTSYNTAX_NO_OSLOG_DEPENDENCY>)
 
 target_link_swift_syntax_libraries(SwiftSyntaxBuilder PUBLIC
-  SwiftBasicFormat
   SwiftParser
   SwiftParserDiagnostics
   SwiftSyntax

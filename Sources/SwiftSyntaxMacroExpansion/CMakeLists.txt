@@ -11,7 +11,6 @@ add_swift_syntax_library(SwiftSyntaxMacroExpansion
 )
 
 target_link_swift_syntax_libraries(SwiftSyntaxMacroExpansion PUBLIC
-  SwiftBasicFormat
   SwiftOperators
   SwiftSyntax
   SwiftSyntaxBuilder

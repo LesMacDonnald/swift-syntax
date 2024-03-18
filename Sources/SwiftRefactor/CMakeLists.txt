@@ -19,7 +19,6 @@ add_swift_syntax_library(SwiftRefactor
 )
 
 target_link_swift_syntax_libraries(SwiftRefactor PUBLIC
-  SwiftBasicFormat
   SwiftParser
   SwiftSyntax
   SwiftSyntaxBuilder

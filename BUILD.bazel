@@ -26,13 +26,6 @@ swift_syntax_library(
 )
 
 swift_syntax_library(
-    name = "SwiftBasicFormat",
-    deps = [
-        ":SwiftSyntax",
-    ],
-)
-
-swift_syntax_library(
     name = "SwiftCompilerPlugin",
     deps = [
         ":SwiftCompilerPluginMessageHandling",
@@ -80,7 +73,6 @@ swift_syntax_library(
 swift_syntax_library(
     name = "SwiftParser",
     deps = [
-        ":SwiftBasicFormat",
         ":SwiftDiagnostics",
         ":SwiftSyntax",
     ],
@@ -89,7 +81,6 @@ swift_syntax_library(
 swift_syntax_library(
     name = "SwiftParserDiagnostics",
     deps = [
-        ":SwiftBasicFormat",
         ":SwiftDiagnostics",
         ":SwiftParser",
         ":SwiftSyntax",
@@ -99,7 +90,6 @@ swift_syntax_library(
 swift_syntax_library(
     name = "SwiftSyntaxBuilder",
     deps = [
-        ":SwiftBasicFormat",
         ":SwiftParser",
         ":SwiftParserDiagnostics",
         ":SwiftSyntax",
@@ -140,7 +130,6 @@ swift_syntax_library(
     name = "_SwiftSyntaxTestSupport",
     testonly = True,
     deps = [
-        ":SwiftBasicFormat",
         ":SwiftSyntax",
         ":SwiftSyntaxBuilder",
         ":SwiftSyntaxMacroExpansion",
