@@ -13,11 +13,7 @@ let package = Package(
     .macCatalyst(.v13),
   ],
   products: [
-    .library(name: "SwiftCompilerPlugin", targets: ["SwiftCompilerPlugin"]),
-    .library(name: "SwiftIDEUtils", targets: ["SwiftIDEUtils"]),
-    .library(name: "SwiftRefactor", targets: ["SwiftRefactor"]),
-    .library(name: "SwiftSyntax", targets: ["SwiftSyntax"]),
-    .library(name: "SwiftSyntaxMacrosTestSupport", targets: ["SwiftSyntaxMacrosTestSupport"]),
+    .library(name: "SwiftSyntax", targets: ["SwiftSyntax"])
   ],
   targets: [
     // MARK: - Internal helper targets
@@ -25,10 +21,6 @@ let package = Package(
       name: "_InstructionCounter"
     ),
 
-    .target(
-      name: "_SwiftSyntaxTestSupport",
-      dependencies: ["SwiftSyntax"]
-    ),
 
     // MARK: - Library targets
     // Formatting style:
@@ -39,21 +31,6 @@ let package = Package(
     //  - All array elements are sorted alphabetically
 
     // MARK: SwiftCompilerPlugin
-
-    .target(
-      name: "SwiftCompilerPlugin",
-      dependencies: ["SwiftSyntax"],
-      exclude: ["CMakeLists.txt"]
-    ),
-
-    // MARK: SwiftIDEUtils
-
-    .target(
-      name: "SwiftIDEUtils",
-      dependencies: ["SwiftSyntax"],
-      exclude: ["CMakeLists.txt"]
-    ),
-
 
     // MARK: SwiftSyntax
 
@@ -82,20 +59,6 @@ let package = Package(
       dependencies: []
     ),
 
-    // MARK: SwiftSyntaxMacrosTestSupport
-
-    .target(
-      name: "SwiftSyntaxMacrosTestSupport",
-      dependencies: ["_SwiftSyntaxTestSupport", "SwiftIDEUtils", "SwiftSyntax"]
-    ),
-
-    // MARK: SwiftRefactor
-
-    .target(
-      name: "SwiftRefactor",
-      dependencies: ["SwiftSyntax"],
-      exclude: ["CMakeLists.txt"]
-    )
   ]
 )
 
