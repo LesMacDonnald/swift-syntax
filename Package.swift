@@ -4,7 +4,7 @@ import Foundation
 import PackageDescription
 
 let package = Package(
-  name: "swift-syntax",
+  name: "SwiftSyntax",
   platforms: [
     .macOS(.v10_15),
     .iOS(.v13),
@@ -16,22 +16,6 @@ let package = Package(
     .library(name: "SwiftSyntax", targets: ["SwiftSyntax"])
   ],
   targets: [
-    // MARK: - Internal helper targets
-    .target(
-      name: "_InstructionCounter"
-    ),
-
-
-    // MARK: - Library targets
-    // Formatting style:
-    //  - One section for each target and its test target
-    //  - Sections are sorted alphabetically
-    //  - Each target argument takes exactly one line, unless there are external dependencies.
-    //    In that case package and internal dependencies are on different lines.
-    //  - All array elements are sorted alphabetically
-
-    // MARK: SwiftCompilerPlugin
-
     // MARK: SwiftSyntax
 
     .target(
