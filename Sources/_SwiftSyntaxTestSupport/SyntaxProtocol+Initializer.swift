@@ -12,10 +12,8 @@
 
 #if swift(>=6)
 @_spi(Testing) @_spi(RawSyntax) public import SwiftSyntax
-import SwiftSyntaxBuilder
 #else
 @_spi(Testing) @_spi(RawSyntax) import SwiftSyntax
-import SwiftSyntaxBuilder
 #endif
 
 private class InitializerExprFormat: BasicFormat {

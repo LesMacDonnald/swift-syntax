@@ -10,15 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if swift(>=6)
-@_spi(MacroExpansion) public import SwiftSyntax
-import SwiftSyntaxBuilder
-@_spi(MacroExpansion) @_spi(ExperimentalLanguageFeature) public import SwiftSyntaxMacros
-#else
-@_spi(MacroExpansion) import SwiftSyntax
-import SwiftSyntaxBuilder
-@_spi(MacroExpansion) @_spi(ExperimentalLanguageFeature) import SwiftSyntaxMacros
-#endif
 
 // MARK: - Public entry function
 
@@ -608,10 +599,6 @@ private extension Trivia {
         .drop(while: predicate)
         .reversed()
     )
-  }
-
-  var startsWithNewline: Bool {
-    self.first?.isNewline ?? false
   }
 }
 

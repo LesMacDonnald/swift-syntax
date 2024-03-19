@@ -12,10 +12,8 @@
 
 #if swift(>=6)
 public import SwiftSyntax
-import SwiftSyntaxBuilder
 #else
 import SwiftSyntax
-import SwiftSyntaxBuilder
 #endif
 
 /// Abstractly represents a source location in the macro.

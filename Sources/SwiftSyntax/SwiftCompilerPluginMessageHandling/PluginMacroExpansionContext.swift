@@ -11,7 +11,6 @@
 //===----------------------------------------------------------------------===//
 
 import SwiftSyntax
-import SwiftSyntaxMacros
 
 /// Manages known source code combined with their filename/fileID. This can be
 /// used to get line/column from a syntax node in the managed source code.

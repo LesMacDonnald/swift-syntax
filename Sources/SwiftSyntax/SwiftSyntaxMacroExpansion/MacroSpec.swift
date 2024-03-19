@@ -10,14 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if swift(>=6)
-public import SwiftSyntax
-public import SwiftSyntaxMacros
-#else
-import SwiftSyntax
-import SwiftSyntaxMacros
-#endif
-
 /// The information of a macro declaration, to be used with `assertMacroExpansion`.
 ///
 /// In addition to specifying the macro’s type, this allows the specification of conformances that will be passed to the macro’s `expansion` function.

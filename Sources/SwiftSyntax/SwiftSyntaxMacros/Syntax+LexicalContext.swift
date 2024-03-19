@@ -10,14 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if swift(>=6)
-public import SwiftSyntax
-import SwiftSyntaxBuilder
-#else
-import SwiftSyntax
-import SwiftSyntaxBuilder
-#endif
-
 extension SyntaxProtocol {
   /// If this syntax node acts as a lexical context from the perspective
   /// of a macro, return a new syntax node based on this node that strips all

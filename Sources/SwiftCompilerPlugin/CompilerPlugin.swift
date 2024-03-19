@@ -13,13 +13,11 @@
 // https://github.com/apple/swift-package-manager/blob/main/Sources/PackagePlugin/Plugin.swift
 
 #if swift(>=6.0)
-public import SwiftSyntaxMacros
 private import Foundation
-private import SwiftCompilerPluginMessageHandling
+private import SwiftSyntax
 #else
-import SwiftSyntaxMacros
 import Foundation
-import SwiftCompilerPluginMessageHandling
+import SwiftSyntax
 #endif
 
 #if os(Windows)

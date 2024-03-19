@@ -10,13 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if swift(>=6)
-public import SwiftSyntax
-import SwiftSyntaxBuilder
-#else
-import SwiftSyntax
-import SwiftSyntaxBuilder
-#endif
 
 enum MacroExpanderError: DiagnosticMessage {
   case undefined

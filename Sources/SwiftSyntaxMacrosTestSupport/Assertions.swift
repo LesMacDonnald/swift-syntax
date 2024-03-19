@@ -12,18 +12,12 @@
 
 #if swift(>=6.0)
 @_spi(FixItApplier) import SwiftIDEUtils
-import SwiftParserDiagnostics
 public import SwiftSyntax
-public import SwiftSyntaxMacroExpansion
-public import SwiftSyntaxMacros
 import _SwiftSyntaxTestSupport
 private import XCTest
 #else
 @_spi(FixItApplier) import SwiftIDEUtils
-import SwiftParserDiagnostics
 import SwiftSyntax
-import SwiftSyntaxMacroExpansion
-import SwiftSyntaxMacros
 import _SwiftSyntaxTestSupport
 import XCTest
 #endif

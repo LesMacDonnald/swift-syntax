@@ -10,10 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-import SwiftSyntax
-@_spi(ExperimentalLanguageFeature) import SwiftSyntaxMacroExpansion
-@_spi(ExperimentalLanguageFeature) import SwiftSyntaxMacros
-
+@_spi(ExperimentalLanguageFeature)
 extension CompilerPluginMessageHandler {
   /// Get concrete macro type from a pair of module name and type name.
   private func resolveMacro(_ ref: PluginMessage.MacroReference) throws -> Macro.Type {
@@ -61,7 +58,7 @@ extension CompilerPluginMessageHandler {
     let expandedSource: String?
     do {
       guard let macroSyntax = syntax.asProtocol(FreestandingMacroExpansionSyntax.self) else {
-        throw MacroExpansionError.freestandingMacroSyntaxIsNotMacro
+        throw MacroMessageHandlingExpansionError.freestandingMacroSyntaxIsNotMacro
       }
       let macroDefinition = try resolveMacro(macro)
       let macroRole: MacroRole
@@ -71,7 +68,7 @@ extension CompilerPluginMessageHandler {
         macroRole = try inferFreestandingMacroRole(definition: macroDefinition)
       }
 
-      expandedSource = SwiftSyntaxMacroExpansion.expandFreestandingMacro(
+      expandedSource = SwiftSyntax.expandFreestandingMacro(
         definition: macroDefinition,
         macroRole: macroRole,
         node: macroSyntax,
@@ -140,7 +137,7 @@ extension CompilerPluginMessageHandler {
       let macroDefinition = try resolveMacro(macro)
       let role = MacroRole(messageMacroRole: macroRole)
 
-      let expansions = SwiftSyntaxMacroExpansion.expandAttachedMacroWithoutCollapsing(
+      let expansions = SwiftSyntax.expandAttachedMacroWithoutCollapsing(
         definition: macroDefinition,
         macroRole: role,
         attributeNode: attributeNode,
@@ -153,7 +150,7 @@ extension CompilerPluginMessageHandler {
       if let expansions, hostCapability.hasExpandMacroResult {
         // Make a single element array by collapsing the results into a string.
         expandedSources = [
-          SwiftSyntaxMacroExpansion.collapse(
+          SwiftSyntax.collapse(
             expansions: expansions,
             for: role,
             attachedTo: declarationNode

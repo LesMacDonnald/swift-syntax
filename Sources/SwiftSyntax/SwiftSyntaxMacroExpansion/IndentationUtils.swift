@@ -10,8 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-import SwiftSyntax
-
 // MARK: SyntaxProtocol.indentationOfFirstLine
 
 extension SyntaxProtocol {

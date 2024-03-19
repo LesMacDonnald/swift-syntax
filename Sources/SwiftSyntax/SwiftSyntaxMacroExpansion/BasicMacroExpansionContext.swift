@@ -10,13 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if swift(>=6)
-public import SwiftSyntax
-public import SwiftSyntaxMacros
-#else
-import SwiftSyntax
-import SwiftSyntaxMacros
-#endif
 
 /// An implementation of the `MacroExpansionContext` protocol that is
 /// suitable for testing purposes.

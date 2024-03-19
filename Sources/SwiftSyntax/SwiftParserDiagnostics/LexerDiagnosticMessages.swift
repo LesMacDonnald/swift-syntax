@@ -10,13 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if swift(>=6)
-@_spi(Diagnostics) @_spi(RawSyntax) public import SwiftSyntax
-#else
-@_spi(Diagnostics) @_spi(RawSyntax) import SwiftSyntax
-#endif
-
-fileprivate let diagnosticDomain: String = "SwiftLexer"
+fileprivate let diagnosticDomainID: String = "SwiftLexer"
 
 /// An error diagnostic whose ID is determined by the diagnostic's type.
 public protocol TokenError: DiagnosticMessage {
@@ -25,7 +19,7 @@ public protocol TokenError: DiagnosticMessage {
 
 public extension TokenError {
   static var diagnosticID: MessageID {
-    return MessageID(domain: diagnosticDomain, id: "\(self)")
+    return MessageID(domain: diagnosticDomainID, id: "\(self)")
   }
 
   var diagnosticID: MessageID {
@@ -44,7 +38,7 @@ public protocol TokenWarning: DiagnosticMessage {
 
 public extension TokenWarning {
   static var diagnosticID: MessageID {
-    return MessageID(domain: diagnosticDomain, id: "\(self)")
+    return MessageID(domain: diagnosticDomainID, id: "\(self)")
   }
 
   var diagnosticID: MessageID {
@@ -86,7 +80,7 @@ public enum StaticTokenError: String, DiagnosticMessage {
   public var message: String { self.rawValue }
 
   public var diagnosticID: MessageID {
-    MessageID(domain: diagnosticDomain, id: "\(type(of: self)).\(self)")
+    MessageID(domain: diagnosticDomainID, id: "\(type(of: self)).\(self)")
   }
 
   public var severity: DiagnosticSeverity { .error }
@@ -100,7 +94,7 @@ public enum StaticTokenWarning: String, DiagnosticMessage {
   public var message: String { self.rawValue }
 
   public var diagnosticID: MessageID {
-    MessageID(domain: diagnosticDomain, id: "\(type(of: self)).\(self)")
+    MessageID(domain: diagnosticDomainID, id: "\(type(of: self)).\(self)")
   }
 
   public var severity: DiagnosticSeverity { .warning }

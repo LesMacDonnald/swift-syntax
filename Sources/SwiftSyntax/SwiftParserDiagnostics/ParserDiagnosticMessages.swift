@@ -10,13 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if swift(>=6)
-@_spi(Diagnostics) @_spi(RawSyntax) public import SwiftSyntax
-#else
-@_spi(Diagnostics) @_spi(RawSyntax) import SwiftSyntax
-#endif
-
-fileprivate let diagnosticDomain: String = "SwiftParser"
+fileprivate let diagnosticDomainID: String = "SwiftParser"
 
 /// An error diagnostic whose ID is determined by the diagnostic's type.
 public protocol ParserError: DiagnosticMessage {
@@ -25,7 +19,7 @@ public protocol ParserError: DiagnosticMessage {
 
 public extension ParserError {
   static var diagnosticID: MessageID {
-    return MessageID(domain: diagnosticDomain, id: "\(self)")
+    return MessageID(domain: diagnosticDomainID, id: "\(self)")
   }
 
   var diagnosticID: MessageID {
@@ -48,7 +42,7 @@ public extension ParserNote {
   }
 
   static var noteID: MessageID {
-    return MessageID(domain: diagnosticDomain, id: "\(self)")
+    return MessageID(domain: diagnosticDomainID, id: "\(self)")
   }
 
   var noteID: MessageID {
@@ -62,7 +56,7 @@ public protocol ParserFixIt: FixItMessage {
 
 public extension ParserFixIt {
   static var fixItID: MessageID {
-    return MessageID(domain: diagnosticDomain, id: "\(self)")
+    return MessageID(domain: diagnosticDomainID, id: "\(self)")
   }
 
   var fixItID: MessageID {
@@ -86,7 +80,7 @@ public struct StaticParserError: DiagnosticMessage {
   }
 
   public var diagnosticID: MessageID {
-    MessageID(domain: diagnosticDomain, id: "\(type(of: self)).\(messageID)")
+    MessageID(domain: diagnosticDomainID, id: "\(type(of: self)).\(messageID)")
   }
 
   public var severity: DiagnosticSeverity { .error }
@@ -605,7 +599,7 @@ public struct StaticParserNote: NoteMessage {
   }
 
   public var noteID: MessageID {
-    MessageID(domain: diagnosticDomain, id: "\(type(of: self)).\(messageID)")
+    MessageID(domain: diagnosticDomainID, id: "\(type(of: self)).\(messageID)")
   }
 }
 
@@ -632,7 +626,7 @@ public struct StaticParserFixIt: FixItMessage {
   }
 
   public var fixItID: MessageID {
-    MessageID(domain: diagnosticDomain, id: "\(type(of: self)).\(messageID)")
+    MessageID(domain: diagnosticDomainID, id: "\(type(of: self)).\(messageID)")
   }
 }
 

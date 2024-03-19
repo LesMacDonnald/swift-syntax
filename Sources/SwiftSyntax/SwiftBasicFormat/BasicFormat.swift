@@ -658,7 +658,7 @@ fileprivate extension TokenSyntax {
   }
 }
 
-fileprivate extension SyntaxProtocol {
+extension SyntaxProtocol {
   /// Returns this node or the first ancestor that satisfies `condition`.
   func ancestorOrSelf<T>(mapping map: (Syntax) -> T?) -> T? {
     var walk: Syntax? = Syntax(self)

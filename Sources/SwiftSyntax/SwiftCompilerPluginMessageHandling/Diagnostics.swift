@@ -13,14 +13,14 @@
 import SwiftSyntax
 
 /// Errors in macro handing.
-enum MacroExpansionError {
+enum MacroMessageHandlingExpansionError {
   case macroTypeNotFound(PluginMessage.MacroReference)
   case freestandingMacroSyntaxIsNotMacro
   case invalidExpansionMessage
   case invalidMacroRole(PluginMessage.MacroRole)
 }
 
-extension MacroExpansionError: DiagnosticMessage {
+extension MacroMessageHandlingExpansionError: DiagnosticMessage {
   var message: String {
     switch self {
     case .macroTypeNotFound(let ref):
@@ -44,7 +44,7 @@ extension MacroExpansionError: DiagnosticMessage {
   }
 }
 
-extension MacroExpansionError: Error {}
+extension MacroMessageHandlingExpansionError: Error {}
 
 extension PluginMessage.Diagnostic.Severity {
   init(from syntaxDiagSeverity: SwiftSyntax.DiagnosticSeverity) {

@@ -10,12 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if swift(>=6)
-public import SwiftSyntaxMacros
-#else
-import SwiftSyntaxMacros
-#endif
-
 /// Optional features.
 public enum PluginFeature: String {
   case loadPluginLibrary = "load-plugin-library"

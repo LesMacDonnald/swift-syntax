@@ -12,10 +12,8 @@
 
 #if swift(>=6)
 public import SwiftSyntax
-import SwiftSyntaxBuilder
 #else
 import SwiftSyntax
-import SwiftSyntaxBuilder
 #endif
 
 /// Expands an editor placeholder, taking into accounts its provided type

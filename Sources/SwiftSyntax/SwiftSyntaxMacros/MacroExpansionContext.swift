@@ -12,10 +12,8 @@
 
 #if swift(>=6)
 public import SwiftSyntax
-import SwiftSyntaxBuilder
 #else
 import SwiftSyntax
-import SwiftSyntaxBuilder
 #endif
 
 /// Interface to extract information about the context in which a given
