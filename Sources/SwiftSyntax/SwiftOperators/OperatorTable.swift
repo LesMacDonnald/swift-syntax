@@ -22,9 +22,9 @@ import SwiftSyntax
 /// syntax tree.
 public struct OperatorTable: Sendable {
   var precedenceGraph: PrecedenceGraph = .init()
-  var infixOperators: [OperatorName: Operator] = [:]
-  var prefixOperators: [OperatorName: Operator] = [:]
-  var postfixOperators: [OperatorName: Operator] = [:]
+  var infixOperators: [OperatorName: ExpressionOperator] = [:]
+  var prefixOperators: [OperatorName: ExpressionOperator] = [:]
+  var postfixOperators: [OperatorName: ExpressionOperator] = [:]
 
   public init() {}
 
@@ -33,7 +33,7 @@ public struct OperatorTable: Sendable {
   @_optimize(none)
   public init(
     precedenceGroups: [PrecedenceGroup],
-    operators: [Operator],
+    operators: [ExpressionOperator],
     errorHandler: OperatorErrorHandler = { throw $0 }
   ) rethrows {
     for group in precedenceGroups {
@@ -46,8 +46,8 @@ public struct OperatorTable: Sendable {
 
   /// Record the operator in the given operator array.
   private func record(
-    _ op: Operator,
-    in table: inout [OperatorName: Operator],
+    _ op: ExpressionOperator,
+    in table: inout [OperatorName: ExpressionOperator],
     errorHandler: OperatorErrorHandler = { throw $0 }
   ) rethrows {
     if let existing = table[op.name] {
@@ -59,7 +59,7 @@ public struct OperatorTable: Sendable {
 
   /// Record the operator.
   mutating func record(
-    _ op: Operator,
+    _ op: ExpressionOperator,
     errorHandler: OperatorErrorHandler = { throw $0 }
   ) rethrows {
     switch op.kind {
@@ -84,21 +84,21 @@ public struct OperatorTable: Sendable {
 }
 
 extension OperatorTable {
-  /// Returns the ``Operator`` corresponding to the given infix operator, or
+  /// Returns the ``ExpressionOperator`` corresponding to the given infix operator, or
   /// `nil` if it is not defined in the operator table.
-  public func infixOperator(named operatorName: OperatorName) -> Operator? {
+  public func infixOperator(named operatorName: OperatorName) -> ExpressionOperator? {
     return infixOperators[operatorName]
   }
 
-  /// Returns the ``Operator`` corresponding to the given prefix operator, or
+  /// Returns the ``ExpressionOperator`` corresponding to the given prefix operator, or
   /// `nil` if it is not defined in the operator table.
-  public func prefixOperator(named operatorName: OperatorName) -> Operator? {
+  public func prefixOperator(named operatorName: OperatorName) -> ExpressionOperator? {
     return prefixOperators[operatorName]
   }
 
-  /// Returns the ``Operator`` corresponding to the given prefix operator, or
+  /// Returns the ``ExpressionOperator`` corresponding to the given prefix operator, or
   /// `nil` if it is not defined in the operator table.
-  public func postfixOperator(named operatorName: OperatorName) -> Operator? {
+  public func postfixOperator(named operatorName: OperatorName) -> ExpressionOperator? {
     return postfixOperators[operatorName]
   }
 

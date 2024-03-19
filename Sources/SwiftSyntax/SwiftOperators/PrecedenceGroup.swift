@@ -10,11 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if swift(>=6)
-public import SwiftSyntax
-#else
-import SwiftSyntax
-#endif
 
 /// Names a precedence group.
 ///
@@ -94,7 +89,7 @@ public struct PrecedenceRelation: Sendable {
 ///       higherThan: AdditivePrecedence
 ///     }
 ///
-/// Operator declarations then specify which precedence group describes their
+/// ExpressionOperator declarations then specify which precedence group describes their
 /// precedence, e.g.,
 ///
 ///     infix operator *: MultiplicationPrecedence

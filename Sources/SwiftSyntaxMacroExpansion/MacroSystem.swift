@@ -11,12 +11,10 @@
 //===----------------------------------------------------------------------===//
 
 #if swift(>=6)
-import SwiftOperators
 @_spi(MacroExpansion) public import SwiftSyntax
 import SwiftSyntaxBuilder
 @_spi(MacroExpansion) @_spi(ExperimentalLanguageFeature) public import SwiftSyntaxMacros
 #else
-import SwiftOperators
 @_spi(MacroExpansion) import SwiftSyntax
 import SwiftSyntaxBuilder
 @_spi(MacroExpansion) @_spi(ExperimentalLanguageFeature) import SwiftSyntaxMacros

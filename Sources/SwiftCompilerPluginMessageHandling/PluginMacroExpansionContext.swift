@@ -10,7 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-import SwiftOperators
 import SwiftSyntax
 import SwiftSyntaxMacros
 

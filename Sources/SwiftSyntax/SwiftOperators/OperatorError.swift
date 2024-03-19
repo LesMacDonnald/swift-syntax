@@ -10,11 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if swift(>=6)
-public import SwiftSyntax
-#else
-import SwiftSyntax
-#endif
 
 /// Describes errors that can occur when working with user-defined operators.
 public enum OperatorError: Error, Sendable {
@@ -26,7 +21,7 @@ public enum OperatorError: Error, Sendable {
   case missingGroup(PrecedenceGroupName, referencedFrom: Syntax)
 
   /// Error produced when a given operator already exists.
-  case operatorAlreadyExists(existing: Operator, new: Operator)
+  case operatorAlreadyExists(existing: ExpressionOperator, new: ExpressionOperator)
 
   /// The named operator is missing from the precedence graph.
   case missingOperator(OperatorName, referencedFrom: Syntax)
@@ -43,7 +38,7 @@ public enum OperatorError: Error, Sendable {
 /// A function that receives an operator precedence error and may do with it
 /// whatever it likes.
 ///
-/// Operator precedence error handlers are passed into each function in the
+/// ExpressionOperator precedence error handlers are passed into each function in the
 /// operator-precedence parser that can produce a failure. The handler
 /// may choose to throw (in which case the error will propagate outward) or
 /// may separately record/drop the error and return without throwing (in

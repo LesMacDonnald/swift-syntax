@@ -16,7 +16,6 @@ let package = Package(
     .library(name: "SwiftCompilerPlugin", targets: ["SwiftCompilerPlugin"]),
     .library(name: "SwiftCompilerPluginMessageHandling", targets: ["SwiftCompilerPluginMessageHandling"]),
     .library(name: "SwiftIDEUtils", targets: ["SwiftIDEUtils"]),
-    .library(name: "SwiftOperators", targets: ["SwiftOperators"]),
     .library(name: "SwiftParserDiagnostics", targets: ["SwiftParserDiagnostics"]),
     .library(name: "SwiftRefactor", targets: ["SwiftRefactor"]),
     .library(name: "SwiftSyntax", targets: ["SwiftSyntax"]),
@@ -56,7 +55,7 @@ let package = Package(
 
     .target(
       name: "SwiftCompilerPluginMessageHandling",
-      dependencies: ["SwiftOperators", "SwiftSyntax", "SwiftSyntaxMacros", "SwiftSyntaxMacroExpansion"],
+      dependencies: ["SwiftSyntax", "SwiftSyntaxMacros", "SwiftSyntaxMacroExpansion"],
       exclude: ["CMakeLists.txt"]
     ),
 
@@ -117,7 +116,7 @@ let package = Package(
 
     .target(
       name: "SwiftSyntaxMacroExpansion",
-      dependencies: ["SwiftSyntax", "SwiftSyntaxBuilder", "SwiftSyntaxMacros", "SwiftOperators"],
+      dependencies: ["SwiftSyntax", "SwiftSyntaxBuilder", "SwiftSyntaxMacros"],
       exclude: ["CMakeLists.txt"]
     ),
 
@@ -134,16 +133,6 @@ let package = Package(
       name: "SwiftParserDiagnostics",
       dependencies: ["SwiftSyntax"],
       exclude: ["CMakeLists.txt"]
-    ),
-
-    // MARK: SwiftOperators
-
-    .target(
-      name: "SwiftOperators",
-      dependencies: ["SwiftSyntax"],
-      exclude: [
-        "CMakeLists.txt"
-      ]
     ),
 
     // MARK: SwiftRefactor

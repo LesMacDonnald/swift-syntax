@@ -14,7 +14,7 @@ import SwiftSyntax
 
 /// Prefabricated operator precedence graphs.
 extension OperatorTable {
-  /// Operator precedence graph for the logical operators '&&' and '||', for
+  /// ExpressionOperator precedence graph for the logical operators '&&' and '||', for
   /// example as it is used in `#if` processing.
   public static var logicalOperators: OperatorTable {
     let precedenceGroups: [PrecedenceGroup] = [
@@ -32,14 +32,14 @@ extension OperatorTable {
       ),
     ]
 
-    let operators: [Operator] = [
-      Operator(kind: .prefix, name: "!"),
-      Operator(
+    let operators: [ExpressionOperator] = [
+      ExpressionOperator(kind: .prefix, name: "!"),
+      ExpressionOperator(
         kind: .infix,
         name: "&&",
         precedenceGroup: "LogicalConjunctionPrecedence"
       ),
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "||",
         precedenceGroup: "LogicalDisjunctionPrecedence"
@@ -52,7 +52,7 @@ extension OperatorTable {
     )
   }
 
-  /// Operator precedence graph for the Swift standard library.
+  /// ExpressionOperator precedence graph for the Swift standard library.
   ///
   /// This describes the operators within the Swift standard library at the
   /// type of this writing. It can be used to approximate the behavior one
@@ -136,294 +136,294 @@ extension OperatorTable {
       ),
     ]
 
-    let operators: [Operator] = [
+    let operators: [ExpressionOperator] = [
       // Standard postfix operators.
-      Operator(kind: .postfix, name: "++"),
-      Operator(kind: .postfix, name: "--"),
-      Operator(kind: .postfix, name: "..."),
+      ExpressionOperator(kind: .postfix, name: "++"),
+      ExpressionOperator(kind: .postfix, name: "--"),
+      ExpressionOperator(kind: .postfix, name: "..."),
 
       // Standard prefix operators.
-      Operator(kind: .prefix, name: "++"),
-      Operator(kind: .prefix, name: "--"),
-      Operator(kind: .prefix, name: "!"),
-      Operator(kind: .prefix, name: "~"),
-      Operator(kind: .prefix, name: "+"),
-      Operator(kind: .prefix, name: "-"),
-      Operator(kind: .prefix, name: "..."),
-      Operator(kind: .prefix, name: "..<"),
+      ExpressionOperator(kind: .prefix, name: "++"),
+      ExpressionOperator(kind: .prefix, name: "--"),
+      ExpressionOperator(kind: .prefix, name: "!"),
+      ExpressionOperator(kind: .prefix, name: "~"),
+      ExpressionOperator(kind: .prefix, name: "+"),
+      ExpressionOperator(kind: .prefix, name: "-"),
+      ExpressionOperator(kind: .prefix, name: "..."),
+      ExpressionOperator(kind: .prefix, name: "..<"),
 
       // "Exponentiative"
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "<<",
         precedenceGroup: "BitwiseShiftPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&<<",
         precedenceGroup: "BitwiseShiftPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: ">>",
         precedenceGroup: "BitwiseShiftPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&>>",
         precedenceGroup: "BitwiseShiftPrecedence"
       ),
 
       // "Multiplicative"
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "*",
         precedenceGroup: "MultiplicationPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&*",
         precedenceGroup: "MultiplicationPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "/",
         precedenceGroup: "MultiplicationPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "%",
         precedenceGroup: "MultiplicationPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&",
         precedenceGroup: "MultiplicationPrecedence"
       ),
 
       // "Additive"
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "+",
         precedenceGroup: "AdditionPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&+",
         precedenceGroup: "AdditionPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "-",
         precedenceGroup: "AdditionPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&-",
         precedenceGroup: "AdditionPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "|",
         precedenceGroup: "AdditionPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "^",
         precedenceGroup: "AdditionPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "...",
         precedenceGroup: "RangeFormationPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "..<",
         precedenceGroup: "RangeFormationPrecedence"
       ),
 
       // "Coalescing"
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "??",
         precedenceGroup: "NilCoalescingPrecedence"
       ),
 
       // "Comparative"
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "<",
         precedenceGroup: "ComparisonPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "<=",
         precedenceGroup: "ComparisonPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: ">",
         precedenceGroup: "ComparisonPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: ">=",
         precedenceGroup: "ComparisonPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "==",
         precedenceGroup: "ComparisonPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "!=",
         precedenceGroup: "ComparisonPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "===",
         precedenceGroup: "ComparisonPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "!==",
         precedenceGroup: "ComparisonPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "~=",
         precedenceGroup: "ComparisonPrecedence"
       ),
 
       // "Conjunctive"
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&&",
         precedenceGroup: "LogicalConjunctionPrecedence"
       ),
 
       // "Disjunctive"
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "||",
         precedenceGroup: "LogicalDisjunctionPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "*=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&*=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "/=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "%=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "+=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&+=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "-=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&-=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "<<=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&<<=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: ">>=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&>>=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "&=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "^=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "|=",
         precedenceGroup: "AssignmentPrecedence"
       ),
 
-      Operator(
+      ExpressionOperator(
         kind: .infix,
         name: "~>"
       ),
